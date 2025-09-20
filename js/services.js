@@ -3,13 +3,13 @@ const services = [
   // ✈️ フライト関連
   {
     id: "domestic",
-    name: "JAL国内線搭乗",
+    name: "JAL国内線搭乗回数",
     unit: "回",
     formula: (value) => value * 5
   },
   {
     id: "intl",
-    name: "JAL国際線搭乗",
+    name: "JAL国際線搭乗区間マイル数",
     unit: "区間マイル",
     formula: (value) => Math.floor(value / 1000) * 5
   },
@@ -17,19 +17,19 @@ const services = [
   // 💳 カード / 決済
   {
     id: "jalCard",
-    name: "JALカード",
+    name: "JALカード獲得マイル数",
     unit: "マイル",
     formula: (value) => Math.floor(value / 2000) * 5
   },
   {
     id: "jalPay",
-    name: "JAL PAY",
+    name: "JAL PAY獲得マイル数",
     unit: "マイル",
     formula: (value) => Math.floor(value / 500) * 1
   },
   {
     id: "jalMall",
-    name: "JAL MALL",
+    name: "JAL MALL獲得マイル数",
     unit: "マイル",
     formula: (value) => Math.floor(value / 100) * 1
   },
@@ -46,13 +46,19 @@ const services = [
   {
     id: "denki",
     name: "JALでんき",
-    unit: "利用有無",
+    unit: "月",
     formula: (value) => value >= 1 ? 1 : 0
   },
   {
     id: "hikari",
     name: "JAL光",
-    unit: "利用有無",
+    unit: "月",
+    formula: (value) => value >= 1 ? 1 : 0
+  },
+  {
+    id: "mobile",
+    name: "JALモバイル利用月数",
+    unit: "月",
     formula: (value) => value >= 1 ? 1 : 0
   },
 
@@ -65,31 +71,25 @@ const services = [
   },
   {
     id: "tourDomestic",
-    name: "JALパックツアー国内",
-    unit: "回",
-    formula: (value) => value * 1
-  },
-  {
-    id: "tourInternational",
-    name: "JALパックツアー海外",
+    name: "JALパックツアー国内利用回数",
     unit: "回",
     formula: (value) => value * 3
   },
   {
-    id: "furusato",
-    name: "JALふるさと納税",
-    unit: "円",
-    formula: (value) => Math.floor(value / 50000) * 1
+    id: "tourInternational",
+    name: "JALパックツアー海外利用回数",
+    unit: "回",
+    formula: (value) => value * 10
   },
   {
     id: "payExchange",
-    name: "JAL PAY両替",
+    name: "JAL PAY両替獲得マイル",
     unit: "マイル",
     formula: (value) => Math.floor(value / 300) * 1
   },
   {
     id: "abc",
-    name: "JAL ABC",
+    name: "JAL ABC獲得マイル",
     unit: "マイル",
     formula: (value) => Math.floor(value / 200) * 1
   },
@@ -129,7 +129,7 @@ const services = [
   // 💳 Luxury Card
   {
     id: "luxuryCard",
-    name: "JAL Luxury Card（基本）",
+    name: "JAL Luxury Card（基本）獲得マイル",
     unit: "マイル",
     formula: (value) => Math.floor(value / 2500) * 5
   },
@@ -138,26 +138,6 @@ const services = [
     name: "JAL Luxury Card（年間ボーナス）",
     unit: "年間利用額（円）",
     formula: (value) => value >= 10000000 ? 75 : 0
-  },
-
-  // 🏠 住宅ローン・資産
-  {
-    id: "loan",
-    name: "JAL住宅ローン",
-    unit: "融資実行",
-    formula: (value) => value >= 1 ? 20 : 0
-  },
-  {
-    id: "investment",
-    name: "JALの資産運用（口座開設）",
-    unit: "口座数",
-    formula: (value) => value * 1
-  },
-  {
-    id: "etravel",
-    name: "JAL e旅計画",
-    unit: "契約口数",
-    formula: (value) => value * 1
   },
 
   // 📈 株主優待
