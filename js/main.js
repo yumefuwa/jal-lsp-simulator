@@ -1,3 +1,5 @@
+console.log("main.js 読み込みOK");
+
 function calc() {
   let total = 0;
   let details = [];
