@@ -1,82 +1,100 @@
-/* 全体のベーススタイル */
-body {
-  background-color: #f9f9f9;
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  padding: 2rem;
-  color: #333;
-}
-
-/* タイトル */
-h2 {
+/* 結果カード */
+#result .result-card {
+  background: linear-gradient(135deg, #fff, #fdf5f5);
+  border: 2px solid #c8102e;
+  border-radius: 12px;
+  padding: 1.8rem;
+  margin-top: 2rem;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.12);
   text-align: center;
-  margin-bottom: 2rem;
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #c8102e; /* JALの赤 */
-}
-
-/* フォーム全体 */
-form {
-  max-width: 600px;
-  margin: 0 auto;
-  background: #fff;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
-}
-
-/* ラベルと入力 */
-form .form-label {
-  font-weight: 600;
-  margin-bottom: 0.2rem;
-}
-
-form input[type="number"] {
-  padding: 0.5rem;
-  font-size: 1rem;
-}
-
-/* 計算ボタン */
-form button[type="submit"] {
-  width: 100%;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-}
-
-/* 結果表示カード */
-#result .alert {
-  max-width: 600px;
-  margin: 2rem auto 0 auto;
-}
-
-/* プログレスバーの見た目補強 */
-.progress {
-  height: 1.5rem;
-  background-color: #eee;
-  border-radius: 0.75rem;
+  position: relative;
   overflow: hidden;
 }
 
-.progress-bar {
-  font-weight: bold;
-  font-size: 0.9rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* 上部に赤いリボン風の装飾 */
+#result .result-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 6px;
+  width: 100%;
+  background: linear-gradient(90deg, #c8102e, #e74c3c);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+/* 結果のタイトル */
+#result .result-card h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #c8102e;
+  text-shadow: 1px 1px 2px rgba(200,16,46,0.2);
+}
+
+#result .result-card p {
+  font-size: 1.1rem;
+  margin: 0.4rem 0;
+  color: #444;
+}
+
+/* プログレスバー */
+#result .progress {
+  margin-top: 1.2rem;
+  height: 22px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+}
+
+#result .progress-bar {
+  background: linear-gradient(90deg, #c8102e, #ff5a5a);
+  height: 100%;
+  transition: width 0.5s ease;
+  color: #fff;
+  font-size: 0.85rem;
+  line-height: 22px;
+  text-align: center;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
 
 /* 積算内訳テーブル */
-table.table {
-  max-width: 600px;
-  margin: 1rem auto;
+#result table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+#result th, #result td {
+  padding: 0.75rem 0.9rem;
+  border: 1px solid #eee;
+}
+
+#result th {
+  background: linear-gradient(90deg, #c8102e, #e74c3c);
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
   font-size: 0.95rem;
 }
 
-table.table th {
-  background-color: #f0f0f0;
+#result td {
   text-align: center;
+  color: #333;
 }
 
-table.table td {
-  text-align: center;
+#result tr:nth-child(even) td {
+  background: #fdf5f5;
+}
+
+#result td strong {
+  color: #c8102e;
+  font-weight: 700;
 }
