@@ -1,62 +1,57 @@
-// main.js
-
 document.addEventListener("DOMContentLoaded", () => {
   const app = document.getElementById("app");
+  if (!app) return console.error("app 要素が見つかりません");
 
   // タイトル
   const title = document.createElement("h2");
   title.textContent = "JALライフステータスポイント シミュレーター";
   app.appendChild(title);
 
-  // フォーム
+  // フォーム生成
   const form = document.createElement("form");
   form.className = "mt-4";
-  form.id = "simForm";
 
-  // 入力フィールド生成
   services.forEach(s => {
     const group = document.createElement("div");
     group.className = "mb-3";
 
     const label = document.createElement("label");
     label.className = "form-label";
-    label.textContent = `${s.name}`;
+    label.setAttribute("for", s.id);
+    label.textContent = s.name;
 
     const input = document.createElement("input");
     input.type = "number";
     input.id = s.id;
     input.className = "form-control";
-    input.min = 0;
-    input.value = 0;
+    input.min = "0";
+    input.value = "0";
 
     group.appendChild(label);
     group.appendChild(input);
     form.appendChild(group);
   });
 
-  // ボタン
   const button = document.createElement("button");
   button.type = "submit";
   button.className = "btn btn-primary";
   button.textContent = "計算する";
   form.appendChild(button);
 
-  app.appendChild(form);
-
-  // 結果表示
   const result = document.createElement("div");
   result.id = "result";
   result.className = "mt-5";
-  app.appendChild(result);
 
-  // イベント処理
   form.addEventListener("submit", e => {
     e.preventDefault();
     calc();
   });
+
+  app.appendChild(form);
+  app.appendChild(result);
 });
 
-// 複利計算と表示処理
+// 計算処理（同じ）
 function calc() {
   let total = 0;
   let details = [];
