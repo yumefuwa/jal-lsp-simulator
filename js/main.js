@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     input.id = s.id;
     input.className = "form-control";
     input.min = "0";
-    input.value = "0";
+    input.value = "";
 
     group.appendChild(label);
     group.appendChild(input);
