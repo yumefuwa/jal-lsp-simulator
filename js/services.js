@@ -9,7 +9,7 @@ const services = [
   },
   {
     id: "intl",
-    name: "JAL国際線搭乗",
+    name: "JAL国際線搭乗区間マイル数",
     unit: "区間マイル",
     formula: (value) => Math.floor(value / 1000) * 5
   },
@@ -37,7 +37,7 @@ const services = [
   // 🏃‍♂️ Wellness
   {
     id: "wellness",
-    name: "JAL Wellness＆Travel",
+    name: "JAL Wellness＆Travel利用月数",
     unit: "月",
     formula: (value) => value * 1
   },
@@ -45,13 +45,13 @@ const services = [
   // ⚡ インフラ
   {
     id: "denki",
-    name: "JALでんき",
+    name: "JALでんき利用月数",
     unit: "月",
     formula: (value) => value >= 1 ? 1 : 0
   },
   {
     id: "hikari",
-    name: "JAL光",
+    name: "JAL光利用月数",
     unit: "月",
     formula: (value) => value >= 1 ? 1 : 0
   },
@@ -65,7 +65,7 @@ const services = [
   // 🛍 サービス利用
   {
     id: "inFlight",
-    name: "JAL機内販売",
+    name: "JAL機内販売獲得マイル数",
     unit: "マイル",
     formula: (value) => Math.floor(value / 100) * 1
   },
@@ -83,25 +83,25 @@ const services = [
   },
   {
     id: "payExchange",
-    name: "JAL PAY両替獲得マイル",
+    name: "JAL PAY両替獲得マイル数",
     unit: "マイル",
     formula: (value) => Math.floor(value / 300) * 1
   },
   {
     id: "abc",
-    name: "JAL ABC獲得マイル",
+    name: "JAL ABC獲得マイル数",
     unit: "マイル",
     formula: (value) => Math.floor(value / 200) * 1
   },
   {
     id: "kariteco",
-    name: "JALでkariteco",
+    name: "JALでkariteco利用月数",
     unit: "利用有無",
     formula: (value) => value >= 1 ? 1 : 0
   },
   {
     id: "mileagePark",
-    name: "JALマイレージパーク",
+    name: "JALマイレージパーク獲得マイル数",
     unit: "マイル",
     formula: (value) => Math.floor(value / 100) * 1
   },
@@ -109,19 +109,19 @@ const services = [
   // 🏦 NEOBANK
   {
     id: "neobankYen",
-    name: "JAL NEOBANK（円普通預金）",
+    name: "JAL NEOBANK（円普通預金）積算月数",
     unit: "積算回数",
     formula: (value, premium=false) => Math.floor(value/6) * (premium ? 3 : 1)
   },
   {
     id: "neobankFx",
-    name: "JAL NEOBANK（外貨普通預金）",
+    name: "JAL NEOBANK（外貨普通預金）積算月数",
     unit: "積算回数",
     formula: (value, premium=false) => Math.floor(value/6) * (premium ? 6 : 2)
   },
   {
     id: "neobankBonus",
-    name: "JAL NEOBANKプレミアム（半期ボーナスマイル）",
+    name: "JAL NEOBANKプレミアム（半期ボーナスマイル）積算回数",
     unit: "回",
     formula: (value) => value * 1
   },
@@ -129,13 +129,13 @@ const services = [
   // 💳 Luxury Card
   {
     id: "luxuryCard",
-    name: "JAL Luxury Card（基本）",
+    name: "JAL Luxury Card基本獲得マイル数",
     unit: "マイル",
     formula: (value) => Math.floor(value / 2500) * 5
   },
   {
     id: "luxuryCardBonus",
-    name: "JAL Luxury Card（年間ボーナス）",
+    name: "JAL Luxury Card（年間ボーナス）年間利用金額（円）",
     unit: "年間利用額（円）",
     formula: (value) => value >= 10000000 ? 75 : 0
   },
@@ -143,7 +143,7 @@ const services = [
   // 📈 株主優待
   {
     id: "stock",
-    name: "JAL株主",
+    name: "JAL保有株数",
     unit: "株数",
     formula: (value) => {
       if (value >= 7000) return 50;
