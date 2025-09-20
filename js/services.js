@@ -9,7 +9,7 @@ const services = [
   },
   {
     id: "intl",
-    name: "JAL国際線搭乗区間マイル数",
+    name: "JAL国際線搭乗",
     unit: "区間マイル",
     formula: (value) => Math.floor(value / 1000) * 5
   },
@@ -129,7 +129,7 @@ const services = [
   // 💳 Luxury Card
   {
     id: "luxuryCard",
-    name: "JAL Luxury Card（基本）獲得マイル",
+    name: "JAL Luxury Card（基本）",
     unit: "マイル",
     formula: (value) => Math.floor(value / 2500) * 5
   },
