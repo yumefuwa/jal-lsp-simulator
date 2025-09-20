@@ -1,5 +1,60 @@
 console.log("main.js 読み込みOK");
 
+document.addEventListener("DOMContentLoaded", () => {
+  const app = document.getElementById("app");
+  if (!app) return console.error("app 要素が見つかりません");
+
+  // タイトル
+  const title = document.createElement("h2");
+  title.textContent = "JALライフステータスポイント シミュレーター";
+  app.appendChild(title);
+
+  // フォーム生成
+  const form = document.createElement("form");
+  form.className = "mt-4";
+
+  services.forEach(s => {
+    const group = document.createElement("div");
+    group.className = "mb-3";
+
+    const label = document.createElement("label");
+    label.className = "form-label";
+    label.setAttribute("for", s.id);
+    label.textContent = s.name;
+
+    const input = document.createElement("input");
+    input.type = "number";
+    input.id = s.id;
+    input.className = "form-control";
+    input.min = "0";
+
+    group.appendChild(label);
+    group.appendChild(input);
+    form.appendChild(group);
+  });
+
+  // ボタン
+  const button = document.createElement("button");
+  button.type = "submit";
+  button.className = "btn btn-primary";
+  button.textContent = "計算する";
+  form.appendChild(button);
+
+  // 結果表示エリア
+  const result = document.createElement("div");
+  result.id = "result";
+  result.className = "mt-5";
+
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    calc();
+  });
+
+  app.appendChild(form);
+  app.appendChild(result);
+});
+
+// 計算処理
 function calc() {
   let total = 0;
   let details = [];
@@ -21,7 +76,6 @@ function calc() {
   const years = total > 0 ? (1500 / total).toFixed(1) : "∞";
   const progress = Math.min((total / 1500) * 100, 100);
 
-  // 結果カード
   let html = `
     <div class="alert alert-info mb-4">
       <h4 class="alert-heading">結果</h4>
@@ -35,7 +89,6 @@ function calc() {
     </div>
   `;
 
-  // 積算内訳はカードの外に独立
   if (details.length > 0) {
     html += `
       <div class="card mt-4">
