@@ -47,19 +47,19 @@ const services = [
     id: "denki",
     name: "JALでんき利用月数",
     unit: "月",
-    formula: (value) => value >= 1 ? 1 : 0
+    formula: (value) => value * 1
   },
   {
     id: "hikari",
     name: "JAL光利用月数",
     unit: "月",
-    formula: (value) => value >= 1 ? 1 : 0
+    formula: (value) => value * 1
   },
   {
     id: "mobile",
     name: "JALモバイル利用月数",
     unit: "月",
-    formula: (value) => value >= 1 ? 1 : 0
+    formula: (value) => value * 1
   },
 
   // 🛍 サービス利用
@@ -97,7 +97,7 @@ const services = [
     id: "kariteco",
     name: "JALでkariteco利用月数",
     unit: "利用有無",
-    formula: (value) => value >= 1 ? 1 : 0
+    formula: (value) => value * 1
   },
   {
     id: "mileagePark",
