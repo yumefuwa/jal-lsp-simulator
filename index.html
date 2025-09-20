@@ -1,18 +1,18 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>JALライフステータスポイント シミュレーター</title>
+  <title>動作テスト</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- CSSを正しいパスで読み込み -->
   <link rel="stylesheet" href="https://yumefuwa.github.io/jal-lsp-simulator/css/style.css">
 </head>
-<body class="container mt-5">
-  <!-- JavaScriptがDOMを生成する対象 -->
-  <div id="app"></div>
+<body>
+  <div id="app">読み込み中...</div>
 
-  <!-- JSを正しいパスで読み込み -->
   <script src="https://yumefuwa.github.io/jal-lsp-simulator/js/services.js"></script>
-  <script src="https://yumefuwa.github.io/jal-lsp-simulator/js/main.js"></script>
+  <script>
+    document.getElementById("app").textContent = "動作テストOK";
+  </script>
 </body>
 </html>
