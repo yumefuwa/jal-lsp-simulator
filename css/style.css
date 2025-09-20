@@ -1,52 +1,39 @@
-/* 全体 */
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
-  background-color: #fff;
-  color: #333;
-  padding: 1rem;
-  font-size: 14px;
-}
-
-/* タイトル */
-h2 {
-  font-size: 1.4rem;
-  margin-bottom: 1rem;
-  text-align: center;
-  color: #c8102e;
-}
-
-/* フォーム（グリッド2列） */
+/* フォーム全体（2列グリッド） */
 form {
   max-width: 700px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.5rem 1rem;
-  align-items: end;
+  gap: 0.75rem 1rem;
 }
 
-/* ラベル付き入力 */
+/* 各入力グループ（ラベル＋入力） */
 .input-group {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
 }
 
 /* ラベル */
 .input-group label {
   font-size: 0.85rem;
   font-weight: 500;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.25rem;
+  line-height: 1.3;
 }
 
 /* 入力欄 */
 .input-group input {
-  padding: 0.4rem 0.6rem;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  padding: 0.5rem 0.6rem;
   border: 1px solid #ccc;
   border-radius: 4px;
+  min-height: 40px;
+  box-sizing: border-box;
+  width: 100%;
 }
 
-/* ボタン（1列目の幅に合わせて広げる） */
+/* ボタン（2列分に跨る） */
 form button[type="submit"] {
   grid-column: span 2;
   padding: 0.6rem;
@@ -58,57 +45,7 @@ form button[type="submit"] {
   margin-top: 0.5rem;
 }
 
-/* 結果表示 */
-#result {
-  max-width: 700px;
-  margin: 1rem auto 0 auto;
-}
-
-/* 結果のボックス */
-#result .alert {
-  padding: 1rem;
-  font-size: 0.9rem;
-  background-color: #f8f9fa;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-}
-
-/* プログレスバー */
-.progress {
-  height: 1rem;
-  background-color: #eee;
-  border-radius: 6px;
-  overflow: hidden;
-  margin-top: 0.5rem;
-}
-
-.progress-bar {
-  font-size: 0.75rem;
-  background-color: #c8102e;
-  text-align: center;
-  color: #fff;
-}
-
-/* 表（内訳） */
-table.table {
-  width: 100%;
-  margin-top: 1rem;
-  font-size: 0.85rem;
-  border-collapse: collapse;
-}
-
-table.table th,
-table.table td {
-  padding: 0.4rem;
-  text-align: center;
-  border: 1px solid #ddd;
-}
-
-table.table th {
-  background-color: #f1f1f1;
-}
-
-/* スマホ対応（1列に折り返し） */
+/* スマホ：1列に落とす */
 @media (max-width: 600px) {
   form {
     grid-template-columns: 1fr;
